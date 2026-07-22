@@ -1,5 +1,6 @@
 import { AppBar, Toolbar, Typography, Container, Box } from '@mui/material'
 import Scatter from './components/Scatter'
+import Radar from './components/Radar'
 
 function App() {
   return (
@@ -17,6 +18,14 @@ function App() {
       </AppBar>
 
       <Container maxWidth="lg" sx={{ py: 5 }}>
+        <Box sx={{ display: 'flex', justifyContent: 'center', mb: 4 }}>
+          <Radar
+            width={800}
+            height={600}
+            blurb="Latest per-suite accuracy for each model, one curve per model."
+          />
+        </Box>
+
         <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 4 }}>
           <Scatter
             xKey="avg_suite_cost"
