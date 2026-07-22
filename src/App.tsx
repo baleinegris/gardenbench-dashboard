@@ -12,7 +12,7 @@ function App() {
             component="div"
             sx={{ fontWeight: 700, color: 'primary.main' }}
           >
-            Garden Bench Dashboard
+            Gardenbench Dashboard
           </Typography>
         </Toolbar>
       </AppBar>
