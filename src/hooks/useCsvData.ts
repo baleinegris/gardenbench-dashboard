@@ -14,7 +14,7 @@ let cachedRows: Row[] | null = null;
 let inFlight: Promise<Row[]> | null = null;
 
 async function fetchCsv(): Promise<Row[]> {
-  const res = await fetch(CSV_URL);
+  const res = await fetch(CSV_URL, { cache: "no-store" });
   if (!res.ok) {
     throw new Error(`Failed to fetch CSV: ${res.status} ${res.statusText}`);
   }

@@ -112,8 +112,7 @@ function ScatterPlot({
       group: String(row[groupBy] ?? "unknown"),
     }));
 
-  // Group points by `groupBy` so each group renders as its own colored
-  // series with a legend entry.
+  // Group points by `groupBy` so each group renders as its own colored series.
   const byGroup = new Map<string, typeof points>();
   for (const point of points) {
     if (!byGroup.has(point.group)) byGroup.set(point.group, []);
@@ -123,11 +122,12 @@ function ScatterPlot({
   return (
     <ScatterChart
       height={height}
+      hideLegend
       series={Array.from(byGroup.entries()).map(([group, groupPoints]) => ({
         label: group,
         data: groupPoints,
         valueFormatter: (point) =>
-          `${group}\n${xLabel}: ${point.x}, ${yLabel}: ${point.y}`,
+          `${yLabel}: ${point.y}`,
       }))}
       xAxis={[{ label: xLabel }]}
       yAxis={[{ label: yLabel, min: 0, max: 1 }]}
